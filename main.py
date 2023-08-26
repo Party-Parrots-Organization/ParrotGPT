@@ -1,10 +1,7 @@
 import streamlit as st
 from streamlit_chat import message
 from utils import process_query
-from langchain.chains import ConversationChain
-from llm import llm, prompt_template
 import streamlit as st
-from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
 
 # Initializing the initial message st.session_states
@@ -13,17 +10,14 @@ if "res" not in st.session_state:
 
 if "req" not in st.session_state:
     st.session_state.req = []
-if 'buffer_memory' not in st.session_state:
-    st.session_state.buffer_memory = ConversationBufferWindowMemory(
-        k=3, return_messages=True)
 
-conversation = ConversationChain(
-    memory=st.session_state.buffer_memory, prompt=prompt_template, llm=llm, verbose=True)
+if "disabled" not in st.session_state:
+    st.session_state.disabled = False
 
 
 # Interface
 
-st.header("SMU Library Chatbot")
+st.header("🦜Parrots GPT")
 
 # Container for Chat History
 response_container = st.container()
@@ -33,12 +27,15 @@ textcontainer = st.container()
 
 # Display for the loading the request by the user
 with textcontainer:
-    query = st.text_input("Query: ", key="input")
-    if query:
+    query = st.text_input("Query: ", key="input",
+                          disabled=st.session_state.disabled)
+    is_clicked = st.button("Send Input")
+    if is_clicked:
         with st.spinner("typing..."):
-            response = process_query(query, conversation)
+            response = process_query(query)
             st.session_state.req.append(query)
             st.session_state.res.append(response)
+            is_clicked = False
 
 # Display of the chat history
 with response_container:
