@@ -4,13 +4,47 @@ import openai
 import streamlit as st
 from os import environ
 from dotenv import load_dotenv
+from langchain.chains import ConversationChain, SequentialChain
+from langchain.chains.question_answering import load_qa_chain
+from langchain.chains.openai_functions.openapi import get_openapi_chain
+import urllib.parse
+# chain = get_openapi_chain("https://www.klarna.com/us/shopping/public/openai/v0/api-docs/")
 
 load_dotenv()
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+url = "https://api-ap.hosted.exlibrisgroup.com/primo/v1/search?" + urllib.parse.urlencode({
+    "vid": "65SMU_INST%3ASMU_NUI",
+    "lang": "eng",
+    "offset": 0,
+    "limit": 10,
+    "sort": "rank",
+    "pcAvailability": "true",
+    "getMore": 0,
+    "conVoc": "true",
+    "inst": "65SMU_INST",
+    "skipDelivery": "true",
+    "disableSplitFacets": "true",
+    "apikey": environ.get("PRIMO_API_KEY")
+})
 
 openai.api_key = environ.get("OPENAI_API_KEY")
 pinecone.init(api_key=environ.get("PINECONE_API_KEY"),
               environment=environ.get("PINECONE_ENVIRONMENT"))
 index = pinecone.Index(environ.get("PINECONE_INDEX"))
+
+
+def process_query(query: str, conversation_chain: ConversationChain):
+    refined_query = query_refiner(get_conversation_string(), query)
+    pinecone_context = find_pinecone_match(refined_query)
+    # response returns a string which contains a list of resources which match the query string
+    response = conversation_chain.predict(
+        input=f"Context:\n {pinecone_context} \n\n Query: \n {query}")
+    api_chain =    # print(api_chain(response))
+    print("==========================")
+    print(pinecone_context[0])
+    print("==========================")
+    return 
 
 
 def query_refiner(conversation, query):
@@ -26,8 +60,9 @@ def query_refiner(conversation, query):
     return response['choices'][0]['text']
 
 
-def find_match(input):
-    input_em = SentenceTransformer("all-MiniLM-L6-v2").encode(input).tolist()
+def find_pinecone_match(input):
+
+    input_em = model.encode(input).tolist()
     result = index.query(input_em,
                          top_k=2, includeMetadata=True)
     if (len(result.matches) == 0):
