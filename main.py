@@ -55,7 +55,7 @@ with textcontainer:
 with response_container:
     if st.session_state.res:
         for i in range(len(st.session_state.res)):
-            message(st.session_state.res[i], key=str(i))
+            message(st.session_state.res[i], key=str(i), logo = f'https://post.healthline.com/wp-content/uploads/2020/08/lychees-732x549-thumbnail-732x549.jpg')
             if i < len(st.session_state.req):
                 message(st.session_state.req[i],
-                        is_user=True, key=str(i) + "_user")
+                        is_user=True, key=str(i) + "_user", logo = f'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/640px-Oranges_-_whole-halved-segment.jpg')
