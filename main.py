@@ -39,7 +39,7 @@ with textcontainer:
 with response_container:
     if st.session_state.res:
         for i in range(len(st.session_state.res)):
-            message(st.session_state.res[i], key=str(i), logo = f'https://post.healthline.com/wp-content/uploads/2020/08/lychees-732x549-thumbnail-732x549.jpg')
+            message(st.session_state.res[i], key=str(i), logo = f'https://pbs.twimg.com/profile_images/1055291498793644032/knSu1p8R_400x400.jpg')
             if i < len(st.session_state.req):
                 message(st.session_state.req[i],
-                        is_user=True, key=str(i) + "_user", logo = f'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/640px-Oranges_-_whole-halved-segment.jpg')
+                        is_user=True, key=str(i) + "_user", logo = f'https://fbsymbols.net/wp-content/uploads/2023/04/parrot.webp')
