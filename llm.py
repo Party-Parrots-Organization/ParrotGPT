@@ -9,7 +9,6 @@ from langchain.chains.conversation.memory import ConversationBufferMemory
 from os import environ
 from dotenv import load_dotenv
 from langchain.chains import ConversationChain
-from langchain.chains.api import open_meteo_docs
 from primodocs import PRIMO_DOCS
 
 load_dotenv()
