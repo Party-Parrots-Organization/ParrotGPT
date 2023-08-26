@@ -5,7 +5,9 @@ from langchain.chains import ConversationChain
 from llm import llm, prompt_template
 import streamlit as st
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
-
+# from langchain.chains.openai_functions.openapi import get_openapi_chain
+# chain = get_openapi_chain("https://www.klarna.com/us/shopping/public/openai/v0/api-docs/")
+# chain("What are some options for a men's large blue button down shirt")
 
 # Initializing the initial message st.session_states
 if "res" not in st.session_state:
@@ -38,7 +40,7 @@ with textcontainer:
         with st.spinner("typing..."):
             # The get_conversation might need to revert back to getconversation_string() instead
             refined_query = query_refiner(get_conversation_string(), query)
-
+            
             # Printing of refined query (Development Purpose)
             st.subheader("Refined Query:")
             st.write(refined_query)
