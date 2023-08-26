@@ -19,3 +19,5 @@ The interface is built with the StreamLit UI Library.
 We used the LangChain framework to use OpenAI's gpt 3.5-turbo models to interact with external data sources and chat with the user.
 We tokenised chat logs and stored them as embeddings in a Pinecone database, which is a vector database.
 To interact with external APIs (Primo, EZprozy), we provided documentation to LangChain chains and instructed them to fetch from these APIs.
+
+orangeguppy/Nicole are the same people:(
