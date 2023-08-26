@@ -23,4 +23,4 @@ print(df.head())
 # Drop the Rating column
 df = df.drop("Rating (0-4)", axis=1)
 
-df.to_csv('your_dataframe.csv', index=False)
+df.to_csv('processed_dataframe.csv', index=False)
