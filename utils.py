@@ -58,12 +58,11 @@ def get_conversation_string():
     for i in range(len(st.session_state.res) - 1):
 
         if len(st.session_state.req) < 4 or i > len(st.session_state.req) - 4:
-            print("its a sucess!")
             conversation_string += "Human: "+st.session_state.req[i] + "\n"
             conversation_string += "Bot: " + \
             st.session_state.res[i+1] + "\n"
         else:
-            print("remove this")
+            pass
 
     print(conversation_string)
     return conversation_string
