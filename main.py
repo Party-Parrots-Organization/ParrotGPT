@@ -15,6 +15,7 @@ if "res" not in st.session_state:
 
 if "req" not in st.session_state:
     st.session_state.req = []
+    
 if 'buffer_memory' not in st.session_state:
     st.session_state.buffer_memory = ConversationBufferWindowMemory(
         k=3, return_messages=True)
@@ -48,6 +49,7 @@ with textcontainer:
             # From vector database
             context = find_match(refined_query)
 
+            # st.session_state.buffer_memory
             response = conversation.predict(
                 input=f"Context:\n {context} \n\n Query: \n {query}")
             st.session_state.req.append(query)
