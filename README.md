@@ -5,7 +5,7 @@ Our application can be found at https://libhackathon-cmx6wwhgfqhhqmcyf4nrfg.stre
 It is compatible with both desktop and mobile devices.
 
 Purpose:
-Our tagline is "Not just the what, but the why".
+Our tagline is "The library in yur Pocket".
 We want to build an eager AI assistant who cares about your purpose, not just what you're asking for.
 
 Key Features:
