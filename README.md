@@ -11,14 +11,14 @@ We want to build an eager AI assistant who cares about your purpose, not just wh
 # Key Features:
 - Understands user intent and profile
 - Remembers recent interactions
-- Backed by reliable data sources (EZprozy and Primo Database, chatlogs)
+- Backed by reliable data sources (Primo Database, chatlogs)
 
 # Tech Stack:
 Our entire application has been programmed in python.
 # Frontend: StreamLit
 # Backend: LangChain, Pandas for data cleaning, Pinecone Vector Database
 # LLM Model: OpenAI's GPT 3.5-Turbo
-We used the LangChain framework to use OpenAI's gpt 3.5-turbo models to interact with external data sources and chat with the user. To allow the model to access SMU Libraries' resources, we used LangChain to instruct the GPT 3.5 model on how to use the Primo API to access the database.
+We used the LangChain framework to use OpenAI's GPT 3.5-turbo models to interact with external data sources and chat with the user. To allow the model to access SMU Libraries' resources, we used LangChain to instruct the GPT 3.5 model on how to use the Primo API to access the database.
 We tokenised chat logs after cleaning the plaintext logs with the Pandas package and stored them as embeddings in a Pinecone database, a vector database, for the application to access.
 
 To better align with user needs, we allowed the model to access historical chat records provided by SMU Libraries.
