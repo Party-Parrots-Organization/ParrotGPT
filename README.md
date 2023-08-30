@@ -19,8 +19,7 @@ Our entire application has been programmed in python.
 # Backend: LangChain, Pandas for data cleaning, Pinecone Vector Database
 # LLM Model: OpenAI's GPT 3.5-Turbo
 We used the LangChain framework to use OpenAI's gpt 3.5-turbo models to interact with external data sources and chat with the user. To allow the model to access SMU Libraries' resources, we used LangChain to instruct the GPT 3.5 model on how to use the Primo API to access the database.
-We tokenised chat logs after cleaning the plaintext logs with the Pandas package and stored them as embeddings in a Pinecone database, a vector database.
-To interact with external APIs (Primo, EZprozy), we provided documentation to LangChain chains and instructed them to fetch from these APIs.
+We tokenised chat logs after cleaning the plaintext logs with the Pandas package and stored them as embeddings in a Pinecone database, a vector database, for the application to access.
 
 To better align with user needs, we allowed the model to access historical chat records provided by SMU Libraries.
 
