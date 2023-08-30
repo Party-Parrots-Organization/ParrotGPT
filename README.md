@@ -14,7 +14,7 @@ We want to build an eager AI assistant who cares about your purpose, not just wh
 - Backed by reliable data sources (Primo Database, chatlogs)
 
 # Tech Stack:
-# Language(s): Python.
+# Language(s): Python
 # Frontend: StreamLit
 # Backend: LangChain, Pandas for data cleaning, Pinecone Vector Database
 # LLM Model: OpenAI's GPT 3.5-Turbo
