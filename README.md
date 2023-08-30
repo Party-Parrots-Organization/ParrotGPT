@@ -6,7 +6,7 @@ It is compatible with both desktop and mobile devices.
 
 Purpose:
 Our tagline is "The library in your Pocket". Our application is accessible on both desktop and mobile devices.
-We want to build an eager AI assistant who cares about your purpose, not just what you're asking for.
+We want to build an eager AI assistant who cares about your purpose, not just what you're asking for. It recommends reliable research resources to users based on their personal research goals and characteristics (e.g. Student/Librarian? Are they new to the material?). It can also remember recent interactions with the user.
 
 Key Features:
 - Understands user intent and profile
