@@ -1,7 +1,7 @@
 # Basically this file is for fun
 
 # Link:
-Our application can be found at https://libhackathon-cmx6wwhgfqhhqmcyf4nrfg.streamlit.app/. This is our submission for SMU Libraries' Generate Your L(AI)brary 2023 Hackathon.
+Our application can be found at https://parrotgpt-blyfdnqhwbffunmrxstfxd.streamlit.app/. This is our submission for SMU Libraries' Generate Your L(AI)brary 2023 Hackathon.
 It is compatible with both desktop and mobile devices.
 
 # Purpose:
